@@ -1,10 +1,13 @@
 package entities;
 import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 @Table(name = "Medecins")
@@ -18,6 +21,10 @@ public class Medecins {
 	private String tel_medecin;
 	private String email_medecin;
 	private LocalDate date_naissance;
+	
+	@OneToOne(mappedBy = "Specialites",fetch = FetchType.EAGER,cascade = CascadeType.PERSIST,orphanRemoval = true)
+	private Specialites specialites;
+	
 	public String getNom_medecin() {
 		return nom_medecin;
 	}

@@ -5,8 +5,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "Assistants") 
-class Assistants {
+@Table(name = "Assistants")
+public class Assistants {
 
 	@Id
 	private String cin;

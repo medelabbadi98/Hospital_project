@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Table(name = "Service_de_garde")
@@ -14,6 +16,10 @@ public class Service_de_garde {
 	@GeneratedValue
 	private long id_service;
 	private LocalDate date_service;
+	
+	@ManyToMany(mappedBy = "medecins")
+	private Medecins medecins;
+	
 	public LocalDate getDate_service() {
 		return date_service;
 	}
