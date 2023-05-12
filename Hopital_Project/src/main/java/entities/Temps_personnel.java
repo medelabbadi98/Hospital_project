@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Table(name = "Temps_personnel")
@@ -16,6 +18,10 @@ public class Temps_personnel {
 	private LocalDate date_temps;
 	private LocalTime heure_depart;
 	private LocalTime heure_fin;
+	
+	@ManyToOne
+	private Medecins medecins;
+	
 	public LocalDate getDate_temps() {
 		return date_temps;
 	}
